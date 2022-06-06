@@ -1,0 +1,42 @@
+CREATE TABLE thongtin(
+    ten VARCHAR(50),
+    tuoi INT,
+    ngaysinh DATE
+)
+
+INSERT INTO thongtin(ten,tuoi,ngaysinh) VALUES('MINH',13,'09871009')
+UPDATE thongtin 
+SET ten='hoang' ,tuoi=10, ngaysinh='19980112'
+DELETE FROM thongtin
+WHERE ten='hoang'
+ALTER TABLE thongtin
+ADD  StudentID INT
+ALTER TABLE thongtin
+ADD  StudentID1 INT NOT NULL
+ALTER TABLE thongtin
+ADD CONSTRAINT mt PRIMARY KEY (StudentID1)
+
+
+CREATE TABLE class(
+    malop INT PRIMARY KEY,
+    tenlop INT
+)
+
+ALTER TABLE class
+ADD CONSTRAINT KL FOREIGN KEY(malop) REFERENCES thongtin(StudentID1)
+
+INSERT INTO class(malop,tenlop) VALUES('09871001',1)
+INSERT INTO thongtin(ten,tuoi,ngaysinh,StudentID1) VALUES('MINH',13,'09871007','09871001')
+
+SELECT* FROM class
+SELECT*FROM thongtin
+
+
+
+
+
+
+
+
+
+
